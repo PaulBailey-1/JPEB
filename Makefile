@@ -45,7 +45,7 @@ ${TEST_OUTS} : ${TEST_OUT}/%.out : Makefile ${TEST_BIN}/%.bin
 ${TEST_OK} : ${TEST_OUT}/%.ok : Makefile ${TEST_BIN}/%.bin
 	$(EMU) ${TEST_BIN}/$*.bin ${DATA_DIR}/ > ${TEST_OUT}/$*.ok
 
-${TEST_RESULTS} : %.result : Makefile %.out %.ok
+${TEST_RESULTS} : %.result : Makefile %.ok %.out
 # Make diff
 	@echo "failed to diff" > $*.diff
 	-diff -a $*.out $*.ok > $*.diff 2>&1 || true
