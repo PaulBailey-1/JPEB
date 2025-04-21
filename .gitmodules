@@ -1,0 +1,12 @@
+[submodule "JPEB-FPGA"]
+	path = JPEB-FPGA
+	url = https://github.com/PaulBailey-1/JPEB-FPGA.git
+[submodule "JPEB-emulator"]
+	path = JPEB-emulator
+	url = https://github.com/PaulBailey-1/JPEB-emulator.git
+[submodule "JPEB-software"]
+	path = JPEB-software
+	url = https://github.com/b-Rocks2718/JPEB-software.git
+[submodule "JPEB-compiler"]
+	path = JPEB-compiler
+	url = https://github.com/b-Rocks2718/JPEB-compiler
