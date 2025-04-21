@@ -1,0 +1,7 @@
+*.bin
+*.hex
+*.diff
+*.ok
+*.out
+*.raw
+*.result
