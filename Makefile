@@ -62,4 +62,6 @@ ${TEST_CLEAN} : %.clean :
 	-rm -rf ${TEST_BIN}/$*.bin ${TEST_BIN}/$*.hex
 	-rm -rf ${TEST_OUT}/$*.out ${TEST_OUT}/$*.diff ${TEST_OUT}/$*.raw ${TEST_OUT}/$*.result
 
-clean: ${TEST_CLEAN}
+clean:
+	-rm -rf ${TEST_BIN}/*.bin ${TEST_BIN}/*.hex
+	-rm -rf ${TEST_OUT}/*.out ${TEST_OUT}/*.diff ${TEST_OUT}/*.raw ${TEST_OUT}/*.result
