@@ -12,7 +12,7 @@ SIM_DATA = JPEB-FPGA/data
 
 TEST_COMMON = $(wildcard tests/common/*.s)
 ASM_TESTS = $(wildcard ${TEST_SRC}/*.s)
-# C_TESTS = $(wildcard tests/c/*.c) doesnt support c tests yet
+C_TESTS = $(wildcard tests/c/*.c) # doesnt support c tests yet
 
 TEST_NAMES = ${sort ${subst ${TEST_SRC}/, , ${subst .s,,${ASM_TESTS}}}}
 TEST_BINS = ${addprefix ${TEST_BIN}/, ${addsuffix .bin,${TEST_NAMES}}}
@@ -26,6 +26,8 @@ TEST_CLEAN = ${addsuffix .clean,${TEST_NAMES}}
 .PRECIOUS: %.s %.bin %.ok
 
 all: test
+
+compile: ${TEST_BINS}
 
 ${TEST_BINS} : ${TEST_BIN}/%.bin : Makefile ${TEST_SRC}/%.s
 	@mkdir -p ${TEST_BIN}
