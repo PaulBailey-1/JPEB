@@ -46,6 +46,7 @@ ${TEST_OUTS} : ${TEST_OUT}/%.out : Makefile ${TEST_BIN}/%.bin
 	@grep -o "<<[^>]*>>" ${TEST_OUT}/$*.raw > ${TEST_OUT}/$*.out
 
 ${TEST_OK} : ${TEST_OUT}/%.ok : Makefile ${TEST_BIN}/%.bin
+	@mkdir -p ${TEST_OUT}
 	$(EMU) ${TEST_BIN}/$*.bin ${DATA_DIR}/ > ${TEST_OUT}/$*.ok
 
 ${TEST_RESULTS} : %.result : Makefile %.ok %.out
@@ -59,7 +60,7 @@ ${TEST_RESULTS} : %.result : Makefile %.ok %.out
 ${TEST_NAMES} : % : Makefile ${TEST_OUT}/%.result
 	@echo "$* ... `cat ${TEST_OUT}/$*.result`"
 
-test : ${TEST_TESTS};
+test : ${TEST_NAMES}
 
 ${TEST_CLEAN} : %.clean :
 	-rm -rf ${TEST_BIN}/$*.bin ${TEST_BIN}/$*.hex
