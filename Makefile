@@ -22,6 +22,7 @@ TEST_OK = ${addsuffix .ok,${TEST_NAMES_OUT}}
 TEST_DIFFS = ${addsuffix .diff,${TEST_NAMES_OUT}}
 TEST_RESULTS = ${addsuffix .result,${TEST_NAMES_OUT}}
 TEST_CLEAN = ${addsuffix .clean,${TEST_NAMES}}
+TEST_RUN = ${addsuffix .run,${TEST_NAMES}}
 
 .PRECIOUS: %.s %.bin %.ok
 
@@ -67,3 +68,7 @@ ${TEST_CLEAN} : %.clean :
 clean:
 	-rm -rf ${TEST_BIN}/*.bin ${TEST_BIN}/*.hex
 	-rm -rf ${TEST_OUT}/*.out ${TEST_OUT}/*.diff ${TEST_OUT}/*.raw ${TEST_OUT}/*.result
+
+${TEST_RUN} : %.run : Makefile ${TEST_BIN}/%.bin
+	@cp ${TEST_BIN}/$*.hex ${SIM_DATA}/program.hex
+	$(SIM) +DATAPATH=${SIM_DATA}
