@@ -1,4 +1,4 @@
-## Memory Map (tentative)
+## Memory Map
 
 0x0000 - 0x9FFF:  
 Code, heap, stack  
