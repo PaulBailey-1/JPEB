@@ -1,1 +1,1 @@
-Syntax highlighting for [Notepad++](https://notepad-plus-plus.org/)
+Syntax highlighting for our ISA in [Notepad++](https://notepad-plus-plus.org/)
