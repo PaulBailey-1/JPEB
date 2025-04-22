@@ -120,7 +120,7 @@ store pc + 1 in rA, branch to address in rB
 
 jalr with any nonzero immdiate in the bottom 7 bits is a halt
 
-111xxxyyy0000001 - halt
+111xxxyyy1110000 - halt
 
 ## unused
 
