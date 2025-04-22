@@ -32,15 +32,17 @@ compile: ${TEST_BINS}
 
 ${TEST_BINS} : ${TEST_BIN}/%.bin : Makefile ${TEST_SRC}/%.s
 	@mkdir -p ${TEST_BIN}
-	$(AS) ${TEST_SRC}/$*.s ${TEST_COMMON} -o ${TEST_BIN}
+#	$(AS) ${TEST_SRC}/$*.s ${TEST_COMMON} -o ${TEST_BIN}
+	$(AS) ${TEST_SRC}/$*.s -o ${TEST_BIN}
 
 ${TEST_OUTS} : ${TEST_OUT}/%.out : Makefile ${TEST_BIN}/%.bin
 # Make raw
 	@echo "failed to run" > ${TEST_OUT}/$*.raw
-	@cp ${TEST_BIN}/$*.hex ${SIM_DATA}/program.hex
 	@cp ${DATA_DIR}/*.hex ${SIM_DATA}/
+	@cp ${TEST_BIN}/$*.hex ${SIM_DATA}/program.hex
+	@sed -i '1s/^/@0\n/' ${SIM_DATA}/program.hex
 	@mkdir -p ${TEST_OUT}
-	$(SIM) +DATAPATH=${SIM_DATA} > ${TEST_OUT}/$*.raw	
+	$(SIM) +DATAPATH=${SIM_DATA}/ > ${TEST_OUT}/$*.raw	
 # Make out
 	@echo "no output" > ${TEST_OUT}/$*.out
 	@grep -o "<<[^>]*>>" ${TEST_OUT}/$*.raw > ${TEST_OUT}/$*.out
@@ -72,4 +74,5 @@ clean:
 
 ${TEST_RUN} : %.run : Makefile ${TEST_BIN}/%.bin
 	@cp ${TEST_BIN}/$*.hex ${SIM_DATA}/program.hex
-	$(SIM) +DATAPATH=${SIM_DATA}
+	@sed -i '1s/^/@0\n/' ${SIM_DATA}/program.hex
+	$(SIM) +DATAPATH=${SIM_DATA}/
