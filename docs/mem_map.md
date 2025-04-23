@@ -3,7 +3,7 @@
 ## 0x0000 - 0x9FFF:  
 Code, heap, stack  
 Code will start at 0x0000, stack at 0x9FFF  
-heap is everything in between
+Heap is everything in between
 
 ## 0xA000 - 0xBFFF:  
 Sprite data. Each sprite is 32x32 pixels, and we reserve space for 8.
