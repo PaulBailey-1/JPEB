@@ -22,6 +22,7 @@ Other I/O.
 Sprite Coordinates.
 Sprite 0 `x` coordinate at 0xFFE0, `y` coordinate at 0xFFE1,  
 Sprite 1 `x` coordinate at 0xFFE2, and so on.
+Each `x`, `y` pair stores the coordinate of the bottom left corner of the sprite.
 
 ## 0xFFFC
 Scale register (all screen items are displayed at 2\*\*n)
