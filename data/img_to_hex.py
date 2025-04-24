@@ -20,11 +20,11 @@ def read_and_process_sprites(file_path, to_keep):
             # print(i,j)
             for x in range(32):
                 for y in range(32):
-                    pixel = sprite.getpixel((x,y))
+                    pixel = sprite.getpixel((y,x))
                     if pixel == transparent:
                         print("FFFF")
                     else:
-                        print(f"0{pixel[0]//16:01X}{pixel[0]//16:01X}{pixel[0]//16:01X}")
+                        print(f"0{pixel[2]//16:01X}{pixel[1]//16:01X}{pixel[0]//16:01X}")
             # print(arr.shape)
             sprites.append(sprite)
 
