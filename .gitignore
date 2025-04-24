@@ -1,5 +1,6 @@
 *.bin
 *.hex
+!mem.hex
 *.diff
 *.ok
 *.out
