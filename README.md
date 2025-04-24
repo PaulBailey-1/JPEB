@@ -15,3 +15,4 @@ Note that this requires building the compiler, emulator, and simulator before ha
 [ISA](https://github.com/PaulBailey-1/JPEB/blob/main/docs/ISA.md)  
 [Memory Map](https://github.com/PaulBailey-1/JPEB/blob/main/docs/mem_map.md)  
 [Calling Conventions](https://github.com/PaulBailey-1/JPEB/blob/main/docs/calling_conventions.md)  
+[IO](https://github.com/PaulBailey-1/JPEB/blob/main/docs/IO.md#io)
