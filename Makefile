@@ -73,6 +73,7 @@ clean:
 	-rm -rf ${TEST_OUT}/*.out ${TEST_OUT}/*.diff ${TEST_OUT}/*.raw ${TEST_OUT}/*.result
 
 ${TEST_RUN} : %.run : Makefile ${TEST_BIN}/%.bin
+	@cp ${DATA_DIR}/*.hex ${SIM_DATA}/
 	@cp ${TEST_BIN}/$*.hex ${SIM_DATA}/program.hex
 	@sed -i '1s/^/@0\n/' ${SIM_DATA}/program.hex
 	$(SIM) +DATAPATH=${SIM_DATA}/
