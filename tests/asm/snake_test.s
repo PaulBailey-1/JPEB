@@ -5,6 +5,7 @@
 INIT:
   
 PRESS_SPACE_TO_START:
+	movi r1, 0x9FFF
   movi r3, TPRESS_SPACE_TO_START
   call print
   # increase scale to see text
@@ -50,8 +51,7 @@ LMOTION_INIT:
   movi r3, 0x00FF
   sw r3, r4, 0
 MAIN:
-  movi r4, LOOP_COUNT
-  lw r3, r4, 0
+  movi r3, 10
 LSTALL:
   addi r3, r3, -1
   bnz LSTALL
